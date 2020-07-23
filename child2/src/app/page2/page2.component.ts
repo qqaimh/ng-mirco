@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Page2Component implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log('child2-page2')
+    console.log(window.location)
+   }
 
   ngOnInit() {
   }
