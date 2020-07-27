@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription, Observable, of, timer } from 'rxjs';
+import { Subscription, Observable, of, timer, interval } from 'rxjs';
 import * as singleSpa from 'single-spa';
 @Component({
   selector: 'child1-page1',
@@ -8,7 +8,7 @@ import * as singleSpa from 'single-spa';
   styleUrls: ['./page1.component.css']
 })
 export class Page1Component implements OnInit {
-  myRxjs: Observable<any>  = timer(1000);
+  myRxjs: Observable<any>  = interval(1000);
   constructor() {
     console.log('child1-page1')
     console.log(window.location)
@@ -28,7 +28,7 @@ export class Page1Component implements OnInit {
 
   // RXJS传值
   sendOb() {
-    let event = new CustomEvent('mytest', {detail:{rxjs:this.myRxjs}});
+    let event = new CustomEvent('myrxjs', {detail:{rxjs:this.myRxjs}});
     window.dispatchEvent(event);
   }
 

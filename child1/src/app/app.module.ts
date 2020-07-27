@@ -4,15 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmptyRouteComponent } from './empty-route/empty-route.component';
-
+import {PortalModule} from '@angular/cdk/portal';
 @NgModule({
   declarations: [
     AppComponent,
-    EmptyRouteComponent
+    EmptyRouteComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PortalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

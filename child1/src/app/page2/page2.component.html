@@ -1,1 +1,12 @@
 <p>page2 works!</p>
+<h2>Open a ComponentPortal Inside Angular Context</h2>
+<button (click)="openComponentPortalInsideAngularContext()">Open a ComponentPortal Inside Angular Context</button>
+<div #_openComponentPortalInsideAngularContext></div>
+
+<h2>Open a TemplatePortal Inside Angular Context</h2>
+<button (click)="openTemplatePortalInsideAngularContext()">Open a TemplatePortal Inside Angular Context</button>
+<div #_openTemplatePortalInsideAngularContext></div>
+<ng-template #_templatePortalInsideAngularContext>
+    <p>Template Portal Inside Angular Context</p>
+</ng-template>
+

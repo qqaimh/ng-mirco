@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
-
+import {PortalModule} from '@angular/cdk/portal';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +16,8 @@ import { Page2Component } from './page2/page2.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PortalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'child2-root',
@@ -7,8 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'child2';
-  constructor() {
+  constructor(public router: Router) {
     console.log('child2')
     console.log(window.location)
+    this.router.navigateByUrl('/child2/page2')
   }
 }

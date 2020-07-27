@@ -1,1 +1,9 @@
 <p>page2 works!</p>
+<h2>Open a ComponentPortal Outside Angular Context</h2>
+<button (click)="openComponentPortalOutSideAngularContext()">Open a ComponentPortal Outside Angular Context</button>
+
+<h2>Open a TemplatePortal Outside Angular Context</h2>
+<button (click)="openTemplatePortalOutSideAngularContext()">Open a TemplatePortal Outside Angular Context</button>
+<ng-template #_templatePortalOutsideAngularContext>
+    <p>Template Portal Outside Angular Context</p>
+</ng-template>

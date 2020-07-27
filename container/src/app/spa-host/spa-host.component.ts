@@ -6,11 +6,15 @@ import * as singleSpa from 'single-spa';
 
 @Component({
   selector: 'app-spa-host',
-  template: '<div #appContainer></div>',
+  template: `<button (click)="sendContainer()"> 牛奶 </button>
+             <div #mycontent style = "border: 1px solid red;" > 嵌入内容 </div>
+             <div #appContainer> </div>`
+  ,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpaHostComponent implements OnInit {
 
+  @ViewChild('mycontent', {static: true}) mycontent: ElementRef;
   constructor(private singleSpaService: SingleSpaService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
 
@@ -33,7 +37,34 @@ export class SpaHostComponent implements OnInit {
 
   ngOnInit() {
     this.appName = this.route.snapshot.data.app;
-    this.mount().subscribe();
+    this.mount().subscribe(res => {
+      console.log(7777888)
+      console.log(res)
+    });
+  }
+
+  sendContainer() {
+    this.singleSpaService.mount('child2', this.mycontent.nativeElement).subscribe()
+    /*
+    if (!this.myModule) {
+      System.import('child2').then(res => {
+        this.myModule = res;
+        res.default.mount(this.mycontent.nativeElement)
+      })
+    } else {
+      this.myModule.default.mount(this.mycontent.nativeElement)
+    }
+    */
+    /*
+    System.import('child2').then((res) => {
+      console.log(77555)
+      console.log(res)
+      // res.mount(this.mycontent.nativeElement)
+      res.default.mount(this.mycontent.nativeElement)
+    })
+    */
+    // let event = new CustomEvent('mycontent', {detail: {mycontent: this.mycontent}});
+    // window.dispatchEvent(event);
   }
 
   mount(): Observable<unknown> {
