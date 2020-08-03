@@ -8,13 +8,12 @@ import { SingleSpaService } from 'src/services/single-spa.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'container';
   $myrxjs: Subscription
   constructor() {
-    
     window.addEventListener('mytest', evt => {
       console.log(7777)
       console.log(evt)

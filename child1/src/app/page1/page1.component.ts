@@ -2,16 +2,20 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription, Observable, of, timer, interval } from 'rxjs';
 import * as singleSpa from 'single-spa';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 @Component({
   selector: 'child1-page1',
   templateUrl: './page1.component.html',
-  styleUrls: ['./page1.component.css']
+  styleUrls: ['./page1.component.css'],
+  
 })
 export class Page1Component implements OnInit {
   myRxjs: Observable<any>  = interval(1000);
+  
   constructor() {
     console.log('child1-page1')
     console.log(window.location)
+    
    }
 
   ngOnInit() {
