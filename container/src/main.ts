@@ -22,10 +22,15 @@ platformBrowserDynamic(getSingleSpaExtraProviders()).bootstrapModule(AppModule)
       // @ts-ignore
       return window.Zone.current._properties[appId] === true;
     };
+    console.log(111)
+    console.log(module.instance)
 
     const rootPlatformLocation = module.injector.get(PlatformLocation) as any;
     const rootZone = module.injector.get(NgZone);
 
+    console.log(222)
+    console.log(rootZone)
+    console.log(rootPlatformLocation)
     // tslint:disable-next-line:no-string-literal
     rootZone['_inner']._properties[appId] = true;
     rootPlatformLocation.setNgZone(rootZone);

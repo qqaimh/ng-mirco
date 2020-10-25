@@ -14,6 +14,8 @@ export class SingleSpaService {
   mount(appName: string, domElement: HTMLElement): Observable<unknown> {
     return from(System.import<ParcelConfig>(appName)).pipe(
       tap((app: ParcelConfig) => {
+        console.log(222333)
+        console.log(app)
         this.loadedParcels[appName] = mountRootParcel(app, {
           domElement
         });
